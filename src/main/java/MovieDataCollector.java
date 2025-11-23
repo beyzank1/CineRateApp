@@ -137,6 +137,25 @@ public class MovieDataCollector {
                 System.out.println("  -> " + movie.title + " (" + movie.year + ")");
             }
         }
+
+        // TODO: Let's test adding a user and a score.
+        System.out.println("\n--- User Scoring Test ---");
+        long newUserId = dbManager.createUser();
+        if (newUserId != -1) {
+            System.out.println("👤 Created a new user with ID: " + newUserId);
+
+            // Let's have this user score "Inception"
+            String movieToScoreId = "tt1375666"; // Inception's IMDb ID
+            System.out.println("⭐️ User " + newUserId + " is scoring movie " + movieToScoreId);
+            dbManager.addScore(newUserId, movieToScoreId, 9, "Absolutely mind-bending! A masterpiece of modern cinema.");
+
+            // Verify the score was added
+            List<DatabaseManager.ScoreRecord> scores = dbManager.getScoresForMovie(movieToScoreId);
+            System.out.println("📊 Fetched " + scores.size() + " score(s) for movie " + movieToScoreId + ":");
+            for (var score : scores) {
+                System.out.println("  -> Review by user " + score.authorId() + ": \"" + score.review() + "\" (Score: " + score.value() + ")");
+            }
+        }
     }
 
     /**

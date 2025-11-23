@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,6 +22,11 @@ import java.util.List;
  *  - Parse the JSON file and insert movie records into the database.
  */
 public class DatabaseManager {
+
+    /**
+     * A simple record to hold data retrieved from the 'scores' table.
+     */
+    public record ScoreRecord(long scoreId, String movieId, long authorId, int value, String review) {}
 
     // The name of the SQLite database file.
     private static final String DB_URL = "jdbc:sqlite:cinerate.db";
@@ -160,5 +166,89 @@ public class DatabaseManager {
         }
 
         return foundMovies;
+    }
+
+    /**
+     * Creates a new user in the 'users' table.
+     *
+     * @return The auto-generated 'uid' of the new user, or -1 on failure.
+     */
+    public long createUser() {
+        String sql = "INSERT INTO users DEFAULT VALUES";
+
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+             PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
+            int affectedRows = pstmt.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        return generatedKeys.getLong(1); // Return the new user ID
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("❌ Error creating user: " + e.getMessage());
+        }
+        return -1; // Indicate failure
+    }
+
+    /**
+     * Adds a score and review for a movie from a specific user.
+     *
+     * @param userId The ID of the user submitting the score.
+     * @param movieId The IMDb ID of the movie being scored.
+     * @param value The score value (e.g., 1-10).
+     * @param review The text review.
+     * @return True if the score was added successfully, false otherwise.
+     */
+    public boolean addScore(long userId, String movieId, int value, String review) {
+        String sql = "INSERT INTO scores(author_id, movie_id, value, review) VALUES(?,?,?,?)";
+
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setLong(1, userId);
+            pstmt.setString(2, movieId);
+            pstmt.setInt(3, value);
+            pstmt.setString(4, review);
+            pstmt.executeUpdate();
+            return true;
+
+        } catch (SQLException e) {
+            System.err.println("❌ Error adding score: " + e.getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Retrieves all scores for a given movie.
+     *
+     * @param movieId The IMDb ID of the movie.
+     * @return A list of ScoreRecord objects.
+     */
+    public List<ScoreRecord> getScoresForMovie(String movieId) {
+        List<ScoreRecord> scores = new ArrayList<>();
+        String sql = "SELECT uid, movie_id, author_id, value, review FROM scores WHERE movie_id = ?";
+
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, movieId);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                scores.add(new ScoreRecord(
+                        rs.getLong("uid"),
+                        rs.getString("movie_id"),
+                        rs.getLong("author_id"),
+                        rs.getInt("value"),
+                        rs.getString("review")));
+            }
+        } catch (SQLException e) {
+            System.err.println("❌ Error fetching scores: " + e.getMessage());
+        }
+        return scores;
     }
 }
