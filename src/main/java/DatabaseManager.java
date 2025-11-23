@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.ResultSet;
 import java.util.List;
 
 /**
@@ -122,5 +123,42 @@ public class DatabaseManager {
         } catch (IOException | SQLException e) {
             System.err.println("❌ Error inserting movies from JSON: " + e.getMessage());
         }
+    }
+
+    /**
+     * Searches for movies in the local database where the title contains the given query string.
+     *
+     * @param titleQuery The text to search for in movie titles.
+     * @return A list of matching MovieRecord objects.
+     */
+    public List<MovieDataCollector.MovieRecord> searchMoviesByTitle(String titleQuery) {
+        List<MovieDataCollector.MovieRecord> foundMovies = new java.util.ArrayList<>();
+        // SQL query to find movies with titles that contain the search query (case-insensitive).
+        String sql = "SELECT originalQuery, title, year, imdbId, type, poster FROM movies WHERE title LIKE ?";
+
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            // Set the parameter for the LIKE clause. The '%' are wildcards.
+            pstmt.setString(1, "%" + titleQuery + "%");
+
+            ResultSet rs = pstmt.executeQuery();
+
+            // Loop through the results and build MovieRecord objects
+            while (rs.next()) {
+                foundMovies.add(new MovieDataCollector.MovieRecord(
+                        rs.getString("originalQuery"),
+                        rs.getString("title"),
+                        rs.getString("year"),
+                        rs.getString("imdbId"),
+                        rs.getString("type"),
+                        rs.getString("poster")
+                ));
+            }
+        } catch (SQLException e) {
+            System.err.println("❌ Database search error: " + e.getMessage());
+        }
+
+        return foundMovies;
     }
 }

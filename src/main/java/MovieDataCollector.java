@@ -123,6 +123,20 @@ public class MovieDataCollector {
         dbManager.initializeDatabase(); // Creates DB and table if they don't exist
         dbManager.insertMoviesFromJson(jsonFilename); // Parses the JSON and inserts records
 
+        // TODO: Let's test searching the local database.
+        System.out.println("\n--- Database Search Test ---");
+        String searchQuery = "King";
+        System.out.println("🔍 Searching for movies in the database with title containing: \"" + searchQuery + "\"");
+        List<MovieRecord> searchResults = dbManager.searchMoviesByTitle(searchQuery);
+
+        if (searchResults.isEmpty()) {
+            System.out.println("🤷 No movies found matching the search query.");
+        } else {
+            System.out.println("✅ Found " + searchResults.size() + " movie(s):");
+            for (MovieRecord movie : searchResults) {
+                System.out.println("  -> " + movie.title + " (" + movie.year + ")");
+            }
+        }
     }
 
     /**
