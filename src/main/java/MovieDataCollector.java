@@ -111,10 +111,18 @@ public class MovieDataCollector {
         }
 
         // 🔹 Write all 15 movies as ONE JSON array into a single file
+        String jsonFilename = "movies_15.json";
         String allJson = collector.gson.toJson(collectedMovies);
-        collector.saveJsonToFile(allJson, "movies_15.json");
+        collector.saveJsonToFile(allJson, jsonFilename);
 
-        System.out.println("✅ Finished. 15 movies saved into movies_15.json");
+        System.out.println("\n✅ Finished collecting. 15 movies saved into " + jsonFilename);
+
+        // 🔹 Now, let's get this data into our local database.
+        System.out.println("\n--- Database Insertion ---");
+        DatabaseManager dbManager = new DatabaseManager();
+        dbManager.initializeDatabase(); // Creates DB and table if they don't exist
+        dbManager.insertMoviesFromJson(jsonFilename); // Parses the JSON and inserts records
+
     }
 
     /**
