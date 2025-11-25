@@ -59,7 +59,7 @@ class MainActivity : ComponentActivity() {
                 var currentUser by remember { mutableStateOf<String?>(null) }
 
                 if (currentUser == null) {
-                    // 🔐 Show login screen first
+                    //  Show login screen first
                     LoginScreen(
                         onLoginSuccess = { username ->
                             currentUser = username

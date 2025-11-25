@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # --- 1. The Database (PostgreSQL) ---
+  # This acts as the warehouse for data.
+  db:
+    image: postgres:15
+    container_name: movie_app_db
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: moviedb
+    volumes:
+      # Persist data so it survives when you restart containers
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+  # --- 2. The Backend (Beyza's Code + Anthony's Logic) ---
+  # This runs the Java code to collect movies and populate the DB.
+  # It will run once, finish its task, and exit.
+  backend:
+    build: ./backend
+    container_name: movie_app_backend
+    depends_on:
+      - db
+    environment:
+      # These variables tell Beyza's Java code how to find the database container
+      - DB_URL=jdbc:postgresql://db:5432/moviedb
+      - DB_USER=user
+      - DB_PASS=password
+    volumes:
+      # Maps the folder so you can see the 'movies_15.json' file appear on  laptop
+      - ./backend:/app
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+
+# Create a shared network so containers can talk to each other
+networks:
+  app-network:
+    driver: bridge
+
+# Define the volume for persistent database storage
+volumes:
+  db_data:
