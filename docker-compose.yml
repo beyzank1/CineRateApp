@@ -35,6 +35,8 @@ services:
     volumes:
       # Maps the folder so you can see the 'movies_15.json' file appear on  laptop
       - ./backend:/app
+    ports:
+      - "5000:5000"
     networks:
       - app-network
 
