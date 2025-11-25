@@ -19,6 +19,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
@@ -29,6 +30,8 @@ import edu.augusta.scc.cinerateui.api.ApiClient
 @Composable
 fun MovieScreen(username: String,
                 modifier: Modifier = Modifier) {
+    val context = LocalContext.current
+
     var query by remember { mutableStateOf("") }
     var movies by remember { mutableStateOf<List<Movie>>(emptyList()) }
     var errorMessage by remember { mutableStateOf<String?>(null) }
@@ -36,7 +39,28 @@ fun MovieScreen(username: String,
     var showReviewDialog by remember { mutableStateOf(false) }
     var reviewMovie by remember { mutableStateOf<Movie?>(null) }
 
+    var initialLoaded by remember { mutableStateOf(false) }
+
     var detailMovie by remember { mutableStateOf<Movie?>(null) }
+
+
+    LaunchedEffect(Unit) {
+        val starter = StarterMoviesLoader.load(context)
+
+        println("DEBUG: MovieScreen initial load, starter size = ${starter.size}")
+
+        movies = starter.map {
+            Movie(
+                id = it.imdbId ?: "",
+                title = it.title ?: "",
+                description = "Year: ${it.year}",
+                cast = emptyList(),
+                avgRating = 0.0,
+                posterUrl = it.poster,
+                year = it.year?.toIntOrNull()
+            )
+        }
+    }
 
     LaunchedEffect(query) {
         if (query.isBlank()) {
