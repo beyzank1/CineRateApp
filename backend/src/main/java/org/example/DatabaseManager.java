@@ -15,14 +15,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-// ✅ NOTE: No import for MovieDataCollector is needed because they are in the same package now!
-
 public class DatabaseManager {
 
     public record ScoreRecord(long scoreId, String movieId, long authorId, int value, String review) {}
 
     public DatabaseManager() {
-        // Force load the driver to prevent "No suitable driver" errors
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
@@ -101,9 +98,37 @@ public class DatabaseManager {
         }
     }
 
+    // It allows saving a single movie record to the DB.
+    public void insertMovie(MovieDataCollector.MovieRecord movie) {
+        String sql = "INSERT INTO movies(originalQuery, title, year, imdbId, type, poster) " +
+                "VALUES(?,?,?,?,?,?) " +
+                "ON CONFLICT (imdbId) DO UPDATE SET " +
+                "originalQuery = EXCLUDED.originalQuery, " +
+                "title = EXCLUDED.title, " +
+                "year = EXCLUDED.year, " +
+                "type = EXCLUDED.type, " +
+                "poster = EXCLUDED.poster";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, movie.originalQuery);
+            pstmt.setString(2, movie.title);
+            pstmt.setString(3, movie.year);
+            pstmt.setString(4, movie.imdbId);
+            pstmt.setString(5, movie.type);
+            pstmt.setString(6, movie.poster);
+
+            pstmt.executeUpdate();
+            System.out.println("💾 Cached movie in DB: " + movie.title);
+
+        } catch (SQLException e) {
+            System.err.println("❌ Error caching movie: " + e.getMessage());
+        }
+    }
+
     public void insertMoviesFromJson(String jsonFilePath) {
         Gson gson = new Gson();
-        // Since MovieDataCollector is in 'org.example' too, we don't need to import it here
         Type movieListType = new TypeToken<List<MovieDataCollector.MovieRecord>>(){}.getType();
 
         String sql = "INSERT INTO movies(originalQuery, title, year, imdbId, type, poster) " +
