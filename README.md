@@ -106,22 +106,12 @@ Add to `AndroidManifest.xml`:
 
 ```xml
 <application
-    android:usesCleartextTraffic="true">
-```
+    android:usesCleartextTraffic="true"
+    android:label="@string/app_name"
+    android:icon="@mipmap/ic_launcher">
+</application>
+
 
 ---
 
-## 📂 Project Structure
 
-```
-backend/
-│
-├── src/main/java/org/example/
-│   ├── MovieDataCollector.java   # Main server & API logic
-│   └── DatabaseManager.java      # DB connection & SQL logic
-│
-├── Dockerfile                    # Builds Java backend image (Temurin 17)
-└── docker-compose.yml            # Runs backend + PostgreSQL containers
-```
-
----
