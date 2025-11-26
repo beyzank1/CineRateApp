@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
@@ -171,5 +176,21 @@
       <updated>1763918271313</updated>
     </task>
     <servers />
+  </component>
+  <component name="play_dynamic_filters_status">
+    <option name="appIdToCheckInfo">
+      <map>
+        <entry key="edu.augusta.scc.cinerateui">
+          <value>
+            <CheckInfo lastCheckTimestamp="1764093859949" />
+          </value>
+        </entry>
+        <entry key="edu.augusta.scc.cinerateui.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1764093859950" />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
