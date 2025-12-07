@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5098f3fb-751a-4f58-9b6b-0cece06adc8b" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+=======
+>>>>>>> UI
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,10 +92,29 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+<<<<<<< HEAD
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/softb/OneDrive/Desktop/distributed/CineRate2/CineRateUI&quot;
   }
 }</component>
+=======
+    &quot;git-widget-placeholder&quot;: &quot;UI&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/softb/OneDrive/Desktop/distributed/CineRate2/CineRateUI/app/src/main/Assets&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\softb\OneDrive\Desktop\distributed\CineRate2\CineRateUI\app\src\main\Assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\softb\OneDrive\Desktop\distributed\CineRate2\CineRateUI\app\src\main\assets" />
+      <recent name="C:\Users\softb\OneDrive\Desktop\distributed\CineRate2\CineRateUI\app\src\main\res\raw" />
+    </key>
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="edu.augusta.scc.cinerateui.api" />
+    </key>
+  </component>
+>>>>>>> UI
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="CineRateUI.app" />
@@ -171,5 +198,21 @@
       <updated>1763918271313</updated>
     </task>
     <servers />
+  </component>
+  <component name="play_dynamic_filters_status">
+    <option name="appIdToCheckInfo">
+      <map>
+        <entry key="edu.augusta.scc.cinerateui">
+          <value>
+            <CheckInfo lastCheckTimestamp="1764093859949" />
+          </value>
+        </entry>
+        <entry key="edu.augusta.scc.cinerateui.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1764093859950" />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

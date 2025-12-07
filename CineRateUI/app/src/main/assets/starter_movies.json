@@ -1,0 +1,402 @@
+[
+  {
+    "originalQuery": "Inception",
+    "title": "Inception",
+    "year": "2010",
+    "imdbId": "tt1375666",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "The Matrix",
+    "title": "The Matrix",
+    "year": "1999",
+    "imdbId": "tt0133093",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Interstellar",
+    "title": "Interstellar",
+    "year": "2014",
+    "imdbId": "tt0816692",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Avengers",
+    "title": "The Avengers",
+    "year": "2012",
+    "imdbId": "tt0848228",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNGE0YTVjNzUtNzJjOS00NGNlLTgxMzctZTY4YTE1Y2Y1ZTU4XkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "The Dark Knight",
+    "title": "The Dark Knight",
+    "year": "2008",
+    "imdbId": "tt0468569",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Titanic",
+    "title": "Titanic",
+    "year": "1997",
+    "imdbId": "tt0120338",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYzYyN2FiZmUtYWYzMy00MzViLWJkZTMtOGY1ZjgzNWMwN2YxXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Gladiator",
+    "title": "Gladiator",
+    "year": "2000",
+    "imdbId": "tt0172495",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYWQ4YmNjYjEtOWE1Zi00Y2U4LWI4NTAtMTU0MjkxNWQ1ZmJiXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "The Godfather",
+    "title": "The Godfather",
+    "year": "1972",
+    "imdbId": "tt0068646",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNGEwYjgwOGQtYjg5ZS00Njc1LTk2ZGEtM2QwZWQ2NjdhZTE5XkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Forrest Gump",
+    "title": "Forrest Gump",
+    "year": "1994",
+    "imdbId": "tt0109830",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNDYwNzVjMTItZmU5YS00YjQ5LTljYjgtMjY2NDVmYWMyNWFmXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Star Wars",
+    "title": "Star Wars: Episode IV - A New Hope",
+    "year": "1977",
+    "imdbId": "tt0076759",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BOGUwMDk0Y2MtNjBlNi00NmRiLTk2MWYtMGMyMDlhYmI4ZDBjXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Jurassic Park",
+    "title": "Jurassic Park",
+    "year": "1993",
+    "imdbId": "tt0107290",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Toy Story",
+    "title": "Toy Story",
+    "year": "1995",
+    "imdbId": "tt0114709",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZTA3OWVjOWItNjE1NS00NzZiLWE1MjgtZDZhMWI1ZTlkNzYwXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Frozen",
+    "title": "Frozen",
+    "year": "2013",
+    "imdbId": "tt2294629",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTQ1MjQwMTE5OF5BMl5BanBnXkFtZTgwNjk3MTcyMDE@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "The Lion King",
+    "title": "The Lion King",
+    "year": "1994",
+    "imdbId": "tt0110357",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZGRiZDZhZjItM2M3ZC00Y2IyLTk3Y2MtMWY5YjliNDFkZTJlXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Harry Potter",
+    "title": "Harry Potter and the Deathly Hallows: Part 2",
+    "year": "2011",
+    "imdbId": "tt1201607",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BOTA1Mzc2N2ItZWRiNS00MjQzLTlmZDQtMjU0NmY1YWRkMGQ4XkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Pulp Fiction",
+    "title": "Pulp Fiction",
+    "year": "1994",
+    "imdbId": "tt0110912",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYTViYTE3ZGQtNDBlMC00ZTAyLTkyODMtZGRiZDg0MjA2YThkXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Fight Club",
+    "title": "Fight Club",
+    "year": "1999",
+    "imdbId": "tt0137523",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BOTgyOGQ1NDItNGU3Ny00MjU3LTg2YWEtNmEyYjBiMjI1Y2M5XkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "The Lord of the Rings",
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "year": "2001",
+    "imdbId": "tt0120737",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNzIxMDQ2YTctNDY4MC00ZTRhLTk4ODQtMTVlOWY4NTdiYmMwXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "The Shawshank Redemption",
+    "title": "The Shawshank Redemption",
+    "year": "1994",
+    "imdbId": "tt0111161",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Goodfellas",
+    "title": "Goodfellas",
+    "year": "1990",
+    "imdbId": "tt0099685",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BN2E5NzI2ZGMtY2VjNi00YTRjLWI1MDUtZGY5OWU1MWJjZjRjXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "The Silence of the Lambs",
+    "title": "The Silence of the Lambs",
+    "year": "1991",
+    "imdbId": "tt0102926",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNDdhOGJhYzctYzYwZC00YmI2LWI0MjctYjg4ODdlMDExYjBlXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Schindler\u0027s List",
+    "title": "Schindler\u0027s List",
+    "year": "1993",
+    "imdbId": "tt0108052",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNjM1ZDQxYWUtMzQyZS00MTE1LWJmZGYtNGUyNTdlYjM3ZmVmXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Saving Private Ryan",
+    "title": "Saving Private Ryan",
+    "year": "1998",
+    "imdbId": "tt0120815",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZGZhZGQ1ZWUtZTZjYS00MDJhLWFkYjctN2ZlYjE5NWYwZDM2XkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "The Green Mile",
+    "title": "The Green Mile",
+    "year": "1999",
+    "imdbId": "tt0120689",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Seven",
+    "title": "Seven Samurai",
+    "year": "1954",
+    "imdbId": "tt0047478",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZjliMWExOTMtZDQ3ZS00NWU3LWIyN2EtMjllNzk3ZTNlYzg4XkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Spirited Away",
+    "title": "Spirited Away",
+    "year": "2001",
+    "imdbId": "tt0245429",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNTEyNmEwOWUtYzkyOC00ZTQ4LTllZmUtMjk0Y2YwOGUzYjRiXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Parasite",
+    "title": "Parasite",
+    "year": "2019",
+    "imdbId": "tt6751668",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYjk1Y2U4MjQtY2ZiNS00OWQyLWI3MmYtZWUwNmRjYWRiNWNhXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "La La Land",
+    "title": "La La Land",
+    "year": "2016",
+    "imdbId": "tt3783958",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Whiplash",
+    "title": "Whiplash",
+    "year": "2014",
+    "imdbId": "tt2582802",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMDFjOWFkYzktYzhhMC00NmYyLTkwY2EtYjViMDhmNzg0OGFkXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Mad Max: Fury Road",
+    "title": "Mad Max: Fury Road",
+    "year": "2015",
+    "imdbId": "tt1392190",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZDRkODJhOTgtOTc1OC00NTgzLTk4NjItNDgxZDY4YjlmNDY2XkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Black Panther",
+    "title": "Black Panther",
+    "year": "2018",
+    "imdbId": "tt1825683",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Spider-Man: Into the Spider-Verse",
+    "title": "Spider-Man: Into the Spider-Verse",
+    "year": "2018",
+    "imdbId": "tt4633694",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMjMwNDkxMTgzOF5BMl5BanBnXkFtZTgwNTkwNTQ3NjM@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "The Social Network",
+    "title": "The Social Network",
+    "year": "2010",
+    "imdbId": "tt1285016",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMjlkNTE5ZTUtNGEwNy00MGVhLThmZjMtZjU1NDE5Zjk1NDZkXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Avatar",
+    "title": "Avatar",
+    "year": "2009",
+    "imdbId": "tt0499549",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMDEzMmQwZjctZWU2My00MWNlLWE0NjItMDJlYTRlNGJiZjcyXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Back to the Future",
+    "title": "Back to the Future",
+    "year": "1985",
+    "imdbId": "tt0088763",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZmM3ZjE0NzctNjBiOC00MDZmLTgzMTUtNGVlOWFlOTNiZDJiXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Raiders of the Lost Ark",
+    "title": "Raiders of the Lost Ark",
+    "year": "1981",
+    "imdbId": "tt0082971",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BOGNhMjg2ZjgtYzk4Ni00MTViLTg1MmUtYzM2MDZiYjZlMmU3XkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "E.T. the Extra-Terrestrial",
+    "title": "E.T. the Extra-Terrestrial",
+    "year": "1982",
+    "imdbId": "tt0083866",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYTNhNmY0YWMtMTczYi00MTA0LThhMmUtMTIxYzE0Y2QwMzRlXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Jaws",
+    "title": "Jaws",
+    "year": "1975",
+    "imdbId": "tt0073195",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYjViNDQzNmUtYzkxZi00NTk5LTljMmItYjJlZmZkODIxNjU1XkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Rocky",
+    "title": "Rocky",
+    "year": "1976",
+    "imdbId": "tt0075148",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZDEyY2M2MGMtYjg5OC00ZWFjLWFkZDQtNmQzZTdiYmYzZTBkXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Alien",
+    "title": "Alien",
+    "year": "1979",
+    "imdbId": "tt0078748",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BN2NhMDk2MmEtZDQzOC00MmY5LThhYzAtMDdjZGFjOGZjMjdjXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Terminator 2: Judgment Day",
+    "title": "Terminator 2: Judgment Day",
+    "year": "1991",
+    "imdbId": "tt0103064",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNGMyMGNkMDUtMjc2Ni00NWFlLTgyODEtZTY2MzBiZTg0OWZiXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "The Shining",
+    "title": "The Shining",
+    "year": "1980",
+    "imdbId": "tt0081505",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNmM5ZThhY2ItOGRjOS00NzZiLWEwYTItNDgyMjFkOTgxMmRiXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "2001: A Space Odyssey",
+    "title": "2001: A Space Odyssey",
+    "year": "1968",
+    "imdbId": "tt0062622",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNjU0NDFkMTQtZWY5OS00MmZhLTg3Y2QtZmJhMzMzMWYyYjc2XkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Casablanca",
+    "title": "Casablanca",
+    "year": "1942",
+    "imdbId": "tt0034583",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNWEzN2U1YTYtYTQyMS00NTVkLWE2NGQtZWFlMmM0MDNjMmRiXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Citizen Kane",
+    "title": "Citizen Kane",
+    "year": "1941",
+    "imdbId": "tt0033467",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYjk1ZDJlMmUtOWQ0Zi00MDM5LTk1OGYtODczNjFmMGYwZGVkXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Gone with the Wind",
+    "title": "Gone with the Wind",
+    "year": "1939",
+    "imdbId": "tt0031381",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYmYxZTE3YzMtYmE2Yy00NmFlLTkzYTAtYTAzN2IzNDFkN2E0XkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "The Wizard of Oz",
+    "title": "The Wizard of Oz",
+    "year": "1939",
+    "imdbId": "tt0032138",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYWRmY2I0MGItYTQ0OC00NWZmLWIwMDktYjJlNDc0MzVhMmViXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Psycho",
+    "title": "American Psycho",
+    "year": "2000",
+    "imdbId": "tt0144084",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNzBjM2I5ZjUtNmIzNy00OGNkLWIwZDMtOTAwYWUwMzA2YjdlXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Vertigo",
+    "title": "Vertigo",
+    "year": "1958",
+    "imdbId": "tt0052357",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNzEyZTUxMWItMGVhYy00Y2NlLTljYTMtYzBmMzI1YmUyMDBkXkEyXkFqcGc@._V1_SX300.jpg"
+  },
+  {
+    "originalQuery": "Rear Window",
+    "title": "Rear Window",
+    "year": "1954",
+    "imdbId": "tt0047396",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BODZhOWI1ODgtMzdiOS00YjNkLTgwOGUtYmIyZDg5ZmQwMzQ1XkEyXkFqcGc@._V1_SX300.jpg"
+  }
+]
