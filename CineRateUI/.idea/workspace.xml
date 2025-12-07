@@ -11,10 +11,15 @@
   <component name="ChangeListManager">
     <list default="true" id="5098f3fb-751a-4f58-9b6b-0cece06adc8b" name="Changes" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
 =======
 >>>>>>> UI
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+>>>>>>> becce2cebb913d9f31e6d69585acfd347c700cea
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,10 +98,14 @@
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> becce2cebb913d9f31e6d69585acfd347c700cea
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/softb/OneDrive/Desktop/distributed/CineRate2/CineRateUI&quot;
   }
 }</component>
+<<<<<<< HEAD
 =======
     &quot;git-widget-placeholder&quot;: &quot;UI&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/softb/OneDrive/Desktop/distributed/CineRate2/CineRateUI/app/src/main/Assets&quot;
@@ -115,6 +124,8 @@
     </key>
   </component>
 >>>>>>> UI
+=======
+>>>>>>> becce2cebb913d9f31e6d69585acfd347c700cea
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="CineRateUI.app" />
