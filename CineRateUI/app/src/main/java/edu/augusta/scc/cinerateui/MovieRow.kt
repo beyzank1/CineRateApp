@@ -15,12 +15,16 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+
+import coil.compose.AsyncImage
+import androidx.compose.ui.layout.ContentScale
+
+
 
 @Composable
 fun MovieRow(
@@ -31,27 +35,33 @@ fun MovieRow(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onClick() }       // <– whole row clickable
+            .clickable { onClick() }
             .padding(8.dp)
     ) {
-        // LEFT: Poster + edit icon (unchanged except for param names)
+
+        // ✅ LEFT: Poster + Edit Button INSIDE SAME BOX
         Box(
             modifier = Modifier
                 .size(width = 90.dp, height = 130.dp)
                 .padding(end = 12.dp)
         ) {
-            Surface(
-                color = MaterialTheme.colorScheme.surfaceVariant,
-                shape = MaterialTheme.shapes.medium
+
+            val poster = if (
+                movie.posterUrl.isNullOrBlank() || movie.posterUrl == "N/A"
             ) {
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text("Poster")
-                }
+                R.drawable.poster_placeholder
+            } else {
+                movie.posterUrl
             }
 
+            AsyncImage(
+                model = poster,
+                contentDescription = "${movie.title} poster",
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
+
+            // ✅ Edit Button is NOW correctly inside the Box
             IconButton(
                 onClick = onWriteReviewClick,
                 modifier = Modifier
@@ -65,19 +75,23 @@ fun MovieRow(
             }
         }
 
-        // RIGHT: summary info (as you already had)
+        // ✅ RIGHT: Info Column (weight now legal again)
         Column(modifier = Modifier.weight(1f)) {
             Text(movie.title, style = MaterialTheme.typography.titleMedium)
+
             movie.year?.let {
                 Text(it.toString(), style = MaterialTheme.typography.bodySmall)
             }
+
             Spacer(Modifier.height(4.dp))
             Text(movie.description, maxLines = 2)
+
             Spacer(Modifier.height(4.dp))
             Text(
                 "Cast: " + movie.cast.joinToString(", "),
                 style = MaterialTheme.typography.bodySmall
             )
+
             Spacer(Modifier.height(4.dp))
             Text("⭐ ${movie.avgRating}")
         }

@@ -1,4 +1,6 @@
 package edu.augusta.scc.cinerateui
 
-class Review {
-}
+data class Review(
+    val rating: Int,
+    val review: String
+)

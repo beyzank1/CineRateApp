@@ -132,31 +132,6 @@ fun LoginScreen(
     }
 }
 
-@Composable
-fun FakeReviewsSection(movieId: String) {
-    // for now this is just hardcoded; later you’ll pull from backend
-    val reviews = listOf(
-        "Loved the visuals and concept.",
-        "A bit confusing at times, but amazing.",
-        "One of my favorite movies ever."
-    )
-
-    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        reviews.forEach { review ->
-            Surface(
-                modifier = Modifier.fillMaxWidth(),
-                shape = MaterialTheme.shapes.small,
-                tonalElevation = 1.dp
-            ) {
-                Text(
-                    text = review,
-                    modifier = Modifier.padding(8.dp),
-                    style = MaterialTheme.typography.bodySmall
-                )
-            }
-        }
-    }
-}
 
 
 

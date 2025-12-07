@@ -26,6 +26,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
+
+
+import coil.compose.AsyncImage
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.foundation.layout.fillMaxHeight
+
+
+
 @Composable
 fun MovieDetailScreen(
     movie: Movie,
@@ -57,40 +65,66 @@ fun MovieDetailScreen(
 
         Spacer(Modifier.height(16.dp))
 
-        // Poster placeholder
-        Surface(
+        // Poster
+        val poster = if (
+            movie.posterUrl.isNullOrBlank() || movie.posterUrl == "N/A"
+        ) {
+            R.drawable.poster_placeholder
+        } else {
+            movie.posterUrl
+        }
+        Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp),
-            shape = MaterialTheme.shapes.medium,
-            color = MaterialTheme.colorScheme.surfaceVariant
+                .height(280.dp),
+            contentAlignment = Alignment.Center
         ) {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
+            Surface(
+                shape = MaterialTheme.shapes.large,
+                tonalElevation = 4.dp
             ) {
-                Text("Poster")
+                AsyncImage(
+                    model = poster,
+                    contentDescription = "${movie.title} poster",
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .padding(horizontal = 16.dp),
+                    contentScale = ContentScale.Fit
+                )
             }
         }
+
+
+
+
 
         Spacer(Modifier.height(16.dp))
 
         // Ratings row
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Column {
-                Text("Our rating", style = MaterialTheme.typography.labelMedium)
-                Text("⭐ %.1f / 5".format(movie.avgRating))
-            }
-            movie.rottenTomatoesScore?.let { rt ->
-                Column {
-                    Text("Rotten Tomatoes", style = MaterialTheme.typography.labelMedium)
-                    Text("$rt%")
+        if (movie.avgRating > 0.0 || movie.rottenTomatoesScore != null) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+
+                if (movie.avgRating > 0.0) {
+                    Column {
+                        Text("Our rating", style = MaterialTheme.typography.labelMedium)
+                        Text("⭐ %.1f / 5".format(movie.avgRating))
+                    }
+                }
+
+                movie.rottenTomatoesScore?.let { rt ->
+                    Column {
+                        Text("Rotten Tomatoes", style = MaterialTheme.typography.labelMedium)
+                        Text("$rt%")
+                    }
                 }
             }
+
+            Spacer(Modifier.height(16.dp))
         }
+
 
         Spacer(Modifier.height(16.dp))
 
@@ -99,18 +133,28 @@ fun MovieDetailScreen(
             Spacer(Modifier.height(8.dp))
         }
 
-        Text("Description", style = MaterialTheme.typography.titleMedium)
-        Spacer(Modifier.height(4.dp))
-        Text(movie.description, style = MaterialTheme.typography.bodyMedium)
+        if (movie.description.isNotBlank()) {
+            Text("Description", style = MaterialTheme.typography.titleMedium)
+            Spacer(Modifier.height(4.dp))
+            Text(movie.description, style = MaterialTheme.typography.bodyMedium)
+
+            Spacer(Modifier.height(16.dp))
+        }
+
 
         Spacer(Modifier.height(16.dp))
 
-        Text("Cast", style = MaterialTheme.typography.titleMedium)
-        Spacer(Modifier.height(4.dp))
-        Text(
-            movie.cast.joinToString(", "),
-            style = MaterialTheme.typography.bodyMedium
-        )
+        if (movie.cast.isNotEmpty()) {
+            Text("Cast", style = MaterialTheme.typography.titleMedium)
+            Spacer(Modifier.height(4.dp))
+            Text(
+                movie.cast.joinToString(", "),
+                style = MaterialTheme.typography.bodyMedium
+            )
+
+            Spacer(Modifier.height(16.dp))
+        }
+
 
         Spacer(Modifier.height(24.dp))
 
@@ -131,6 +175,6 @@ fun MovieDetailScreen(
         Text("Other reviews", style = MaterialTheme.typography.titleMedium)
         Spacer(Modifier.height(8.dp))
 
-        FakeReviewsSection(movieId = movie.id)
+        ReviewsSection(movieId = movie.id)
     }
 }

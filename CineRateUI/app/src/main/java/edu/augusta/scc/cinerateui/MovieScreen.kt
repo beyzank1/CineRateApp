@@ -64,6 +64,7 @@ fun MovieScreen(username: String,
 
     LaunchedEffect(query) {
         if (query.isBlank()) {
+            if (!initialLoaded) return@LaunchedEffect
             movies = emptyList()
             errorMessage = null
             return@LaunchedEffect
@@ -84,13 +85,16 @@ fun MovieScreen(username: String,
                 )
             }
 
+            initialLoaded = true
             errorMessage = null
+
         } catch (e: Exception) {
             e.printStackTrace()
             movies = emptyList()
             errorMessage = e.message ?: "Failed to load movies"
         }
     }
+
 
 
 
