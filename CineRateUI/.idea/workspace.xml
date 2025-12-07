@@ -4,12 +4,20 @@
     <shared>
       <config />
     </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/poster_placeholder.xml">
+        <config>
+          <theme>@style/Theme.CineRateUI</theme>
+        </config>
+      </layout>
+    </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5098f3fb-751a-4f58-9b6b-0cece06adc8b" name="Changes" comment="">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" />
@@ -20,7 +28,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
 >>>>>>> becce2cebb913d9f31e6d69585acfd347c700cea
+=======
+>>>>>>> UI
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/augusta/scc/cinerateui/MovieScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/augusta/scc/cinerateui/MovieScreen.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +67,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="resourceFile" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -86,6 +98,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Android App.app.executor&quot;: &quot;Run&quot;,
@@ -126,6 +139,23 @@
 >>>>>>> UI
 =======
 >>>>>>> becce2cebb913d9f31e6d69585acfd347c700cea
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.app.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "UI",
+    "last_opened_file_path": "C:/Users/softb/OneDrive/Desktop/distributed/CineRate2/CineRateUI"
+  }
+}]]></component>
+>>>>>>> UI
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="CineRateUI.app" />
@@ -215,12 +245,12 @@
       <map>
         <entry key="edu.augusta.scc.cinerateui">
           <value>
-            <CheckInfo lastCheckTimestamp="1764093859949" />
+            <CheckInfo lastCheckTimestamp="1765128372804" />
           </value>
         </entry>
         <entry key="edu.augusta.scc.cinerateui.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1764093859950" />
+            <CheckInfo lastCheckTimestamp="1765128372806" />
           </value>
         </entry>
       </map>

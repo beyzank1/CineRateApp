@@ -12,7 +12,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -23,8 +22,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.rememberCoroutineScope
 
 import edu.augusta.scc.cinerateui.api.ApiClient
+import edu.augusta.scc.cinerateui.api.ReviewRequest
+import kotlinx.coroutines.launch
+
 
 
 @Composable
@@ -42,6 +45,8 @@ fun MovieScreen(username: String,
     var initialLoaded by remember { mutableStateOf(false) }
 
     var detailMovie by remember { mutableStateOf<Movie?>(null) }
+    val scope = rememberCoroutineScope()
+
 
 
     LaunchedEffect(Unit) {
@@ -64,6 +69,7 @@ fun MovieScreen(username: String,
 
     LaunchedEffect(query) {
         if (query.isBlank()) {
+            if (!initialLoaded) return@LaunchedEffect
             movies = emptyList()
             errorMessage = null
             return@LaunchedEffect
@@ -84,13 +90,16 @@ fun MovieScreen(username: String,
                 )
             }
 
+            initialLoaded = true
             errorMessage = null
+
         } catch (e: Exception) {
             e.printStackTrace()
             movies = emptyList()
             errorMessage = e.message ?: "Failed to load movies"
         }
     }
+
 
 
 
@@ -176,7 +185,26 @@ fun MovieScreen(username: String,
             movie = reviewMovie!!,
             onDismiss = { showReviewDialog = false },
             onSubmit = { rating, text ->
+
+                if (rating == 0 || text.isBlank()) {
+                    return@WriteReviewDialog  
+                }
+
                 showReviewDialog = false
+
+                scope.launch {
+                    try {
+                        ApiClient.api.submitReview(
+                            ReviewRequest(
+                                movieId = reviewMovie!!.id,
+                                rating = rating,
+                                review = text
+                            )
+                        )
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
             }
         )
     }
