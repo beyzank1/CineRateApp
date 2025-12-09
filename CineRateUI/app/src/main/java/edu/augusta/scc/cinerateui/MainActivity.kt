@@ -64,10 +64,8 @@ data class Movie(
     val id: String,
     val title: String,
     val description: String,
-    val cast: List<String>,
     val avgRating: Double,
     val posterUrl: String? = null,
-    val rottenTomatoesScore: Int? = null, // 0–100
     val year: Int? = null
 )
 

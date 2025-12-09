@@ -17,7 +17,8 @@ data class MovieRecord(
     val year: String?,
     val imdbId: String?,
     val type: String?,
-    val poster: String?
+    val poster: String?,
+    val plot: String?
 )
 
 interface MovieApi {
@@ -27,17 +28,21 @@ interface MovieApi {
         @Query("q") query: String
     ): List<MovieRecord>
 
-    @GET("/")
-    suspend fun health(): String
+    @POST("/reviews")
+    suspend fun submitReview(
+        @Body req: ReviewRequest
+    )
 
     @GET("/reviews/{movieId}")
     suspend fun getReviews(
         @Path("movieId") movieId: String
-    ): List<Review>
+    ): List<ReviewResponse>
 
-    @POST("/reviews")
-    suspend fun submitReview(
-        @Body review: ReviewRequest
-    )
+    @GET("/movie/{imdbId}")
+    suspend fun getMovieDetails(
+        @Path("imdbId") imdbId: String
+    ): MovieRecord
+
+
 
 }

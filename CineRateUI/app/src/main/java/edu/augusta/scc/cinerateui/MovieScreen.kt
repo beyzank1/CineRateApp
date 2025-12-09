@@ -46,6 +46,8 @@ fun MovieScreen(username: String,
 
     var detailMovie by remember { mutableStateOf<Movie?>(null) }
     val scope = rememberCoroutineScope()
+    var reviewRefreshKey by remember { mutableStateOf(0) }
+
 
 
 
@@ -58,8 +60,7 @@ fun MovieScreen(username: String,
             Movie(
                 id = it.imdbId ?: "",
                 title = it.title ?: "",
-                description = "Year: ${it.year}",
-                cast = emptyList(),
+                description = it.plot ?: "Year: ${it.year}",
                 avgRating = 0.0,
                 posterUrl = it.poster,
                 year = it.year?.toIntOrNull()
@@ -82,8 +83,7 @@ fun MovieScreen(username: String,
                 Movie(
                     id = it.imdbId ?: "",
                     title = it.title ?: "Unknown Movie",
-                    description = "Year: ${it.year}",
-                    cast = emptyList(),
+                    description = it.plot ?: "Year: ${it.year}",
                     avgRating = 0.0,
                     posterUrl = it.poster,
                     year = it.year?.toIntOrNull()
@@ -159,7 +159,27 @@ fun MovieScreen(username: String,
 
             MovieList(
                 movies = movies,
-                onMovieClick = { movie -> detailMovie = movie },
+                onMovieClick = { movie ->
+                    scope.launch {
+                        try {
+
+                            val fullMovie = ApiClient.api.getMovieDetails(movie.id)
+
+
+                            detailMovie = movie.copy(
+                                description = fullMovie.plot ?: movie.description,
+                                posterUrl = fullMovie.poster ?: movie.posterUrl,
+                                year = fullMovie.year?.toIntOrNull() ?: movie.year
+                            )
+
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+
+
+                            detailMovie = movie
+                        }
+                    }
+                },
                 onWriteReviewClick = { movie ->
                     reviewMovie = movie
                     showReviewDialog = true
@@ -171,12 +191,17 @@ fun MovieScreen(username: String,
         // 🔹 DETAIL SCREEN
         MovieDetailScreen(
             movie = detailMovie!!,
+            reviewRefreshKey = reviewRefreshKey,
             onBack = { detailMovie = null },
             onWriteReviewClick = { movie ->
                 reviewMovie = movie
                 showReviewDialog = true
+            },
+            onAverageUpdated = { avg ->
+                detailMovie = detailMovie!!.copy(avgRating = avg)
             }
         )
+
     }
 
     // 🔹 Shared write-review dialog
@@ -201,6 +226,9 @@ fun MovieScreen(username: String,
                                 review = text
                             )
                         )
+
+                        reviewRefreshKey++
+
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }

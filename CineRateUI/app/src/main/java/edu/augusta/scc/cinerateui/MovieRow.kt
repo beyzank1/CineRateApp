@@ -1,5 +1,6 @@
 package edu.augusta.scc.cinerateui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Icon
@@ -66,34 +68,34 @@ fun MovieRow(
                 onClick = onWriteReviewClick,
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
-                    .size(28.dp)
+                    .size(32.dp)
+                    .background(
+                        color = MaterialTheme.colorScheme.primary,
+                        shape = CircleShape
+                    )
             ) {
                 Icon(
                     imageVector = Icons.Filled.Edit,
-                    contentDescription = "Write review"
+                    contentDescription = "Write review",
+                    tint = MaterialTheme.colorScheme.onPrimary
                 )
             }
+
         }
 
         // ✅ RIGHT: Info Column (weight now legal again)
         Column(modifier = Modifier.weight(1f)) {
             Text(movie.title, style = MaterialTheme.typography.titleMedium)
 
-            movie.year?.let {
-                Text(it.toString(), style = MaterialTheme.typography.bodySmall)
-            }
 
             Spacer(Modifier.height(4.dp))
             Text(movie.description, maxLines = 2)
 
             Spacer(Modifier.height(4.dp))
-            Text(
-                "Cast: " + movie.cast.joinToString(", "),
-                style = MaterialTheme.typography.bodySmall
-            )
+            if (movie.avgRating > 0.0) {
+                Text("⭐ %.1f".format(movie.avgRating))
+            }
 
-            Spacer(Modifier.height(4.dp))
-            Text("⭐ ${movie.avgRating}")
         }
     }
 }
