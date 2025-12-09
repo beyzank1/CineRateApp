@@ -130,7 +130,7 @@ public class DatabaseManager {
         }
     }
 
-    // --- NEW: Search Local DB (Required for Offline Mode) ---
+    // --- Search Local DB (Required for Offline Mode) ---
     public List<MovieDataCollector.MovieRecord> searchMoviesLocal(String query) {
         List<MovieDataCollector.MovieRecord> movies = new ArrayList<>();
         // Use ILIKE for case-insensitive search
@@ -160,7 +160,7 @@ public class DatabaseManager {
         return movies;
     }
 
-    // --- NEW: Get Movie Detail Local (Required for Offline Mode) ---
+    // --- Get Movie Detail Local (Required for Offline Mode) ---
     public MovieDataCollector.MovieRecord getMovieLocal(String imdbId) {
         String sql = "SELECT * FROM movies WHERE imdbId = ?";
         try (Connection conn = getConnection();
