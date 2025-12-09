@@ -16,13 +16,13 @@ import androidx.compose.ui.unit.dp
 import edu.augusta.scc.cinerateui.api.ApiClient
 
 @Composable
-fun ReviewsSection(movieId: String) {
+fun ReviewsSection(movieId: String, refreshKey: Int) {
 
     var reviews by remember { mutableStateOf<List<Review>>(emptyList()) }
     var isLoading by remember { mutableStateOf(true) }
     var error by remember { mutableStateOf<String?>(null) }
 
-    LaunchedEffect(movieId) {
+    LaunchedEffect(movieId, refreshKey) {
         try {
             // This will fail silently until backend exists — and that's OK
             reviews = ApiClient.api.getReviews(movieId)
@@ -75,7 +75,7 @@ fun ReviewCard(review: Review) {
         modifier = Modifier.fillMaxWidth()
     ) {
         Column(modifier = Modifier.padding(12.dp)) {
-            Text("⭐ ${review.rating} / 5", style = MaterialTheme.typography.labelMedium)
+            Text("⭐ ${review.value} / 5", style = MaterialTheme.typography.labelMedium)
             Spacer(Modifier.height(4.dp))
             Text(review.review, style = MaterialTheme.typography.bodyMedium)
         }

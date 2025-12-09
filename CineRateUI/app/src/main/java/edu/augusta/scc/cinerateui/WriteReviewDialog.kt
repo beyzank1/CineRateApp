@@ -22,7 +22,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 
 @Composable
 fun WriteReviewDialog(
@@ -40,20 +42,23 @@ fun WriteReviewDialog(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 // Poster placeholder (will swap with Coil later)
-                Surface(
+                val poster = if (
+                    movie.posterUrl.isNullOrBlank() || movie.posterUrl == "N/A"
+                ) {
+                    R.drawable.poster_placeholder
+                } else {
+                    movie.posterUrl
+                }
+
+                AsyncImage(
+                    model = poster,
+                    contentDescription = null,
                     modifier = Modifier
                         .size(60.dp)
                         .padding(end = 12.dp),
-                    shape = MaterialTheme.shapes.small,
-                    color = MaterialTheme.colorScheme.surfaceVariant
-                ) {
-                    Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text("Poster")
-                    }
-                }
+                    contentScale = ContentScale.Crop
+                )
+
 
                 // Movie title
                 Text(

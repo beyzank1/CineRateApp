@@ -197,7 +197,7 @@ fun MovieScreen(username: String,
                         ApiClient.api.submitReview(
                             ReviewRequest(
                                 movieId = reviewMovie!!.id,
-                                rating = rating,
+                                value = rating,
                                 review = text
                             )
                         )

@@ -31,7 +31,10 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.foundation.layout.fillMaxHeight
-
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 
 
 @Composable
@@ -40,6 +43,8 @@ fun MovieDetailScreen(
     onBack: () -> Unit,
     onWriteReviewClick: (Movie) -> Unit
 ) {
+    var reviewRefreshKey by remember { mutableStateOf(0) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -175,6 +180,6 @@ fun MovieDetailScreen(
         Text("Other reviews", style = MaterialTheme.typography.titleMedium)
         Spacer(Modifier.height(8.dp))
 
-        ReviewsSection(movieId = movie.id)
+        ReviewsSection(movieId = movie.id, refreshKey = reviewRefreshKey)
     }
 }
