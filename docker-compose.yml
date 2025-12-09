@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
   # --- 1. The Database (PostgreSQL) ---
-  # This acts as the warehouse for data.
   db:
     image: postgres:15
     container_name: movie_app_db
@@ -16,35 +15,39 @@ services:
       - db_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    # The Health Check
+    # This specifically asks Postgres: "Are you ready to accept connections?"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d moviedb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     networks:
       - app-network
 
-  # --- 2. The Backend (Beyza's Code + Anthony's Logic) ---
-  # This runs the Java code to collect movies and populate the DB.
-  # It will run once, finish its task, and exit.
+  # --- 2. The Backend ---
   backend:
     build: ./backend
     container_name: movie_app_backend
+    # Wait for the DB to be "Healthy" (not just started)
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
-      # These variables tell Beyza's Java code how to find the database container
+      # These variables tell Java how to find the database container
       - DB_URL=jdbc:postgresql://db:5432/moviedb
       - DB_USER=user
       - DB_PASS=password
     volumes:
-      # Maps the folder so you can see the 'movies_15.json' file appear on  laptop
       - ./backend:/app
     ports:
       - "5000:5000"
     networks:
       - app-network
 
-# Create a shared network so containers can talk to each other
 networks:
   app-network:
     driver: bridge
 
-# Define the volume for persistent database storage
 volumes:
   db_data:
