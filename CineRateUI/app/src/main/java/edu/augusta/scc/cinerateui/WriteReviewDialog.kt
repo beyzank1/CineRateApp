@@ -1,18 +1,16 @@
 package edu.augusta.scc.cinerateui
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -41,7 +39,6 @@ fun WriteReviewDialog(
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Poster placeholder (will swap with Coil later)
                 val poster = if (
                     movie.posterUrl.isNullOrBlank() || movie.posterUrl == "N/A"
                 ) {
@@ -59,8 +56,6 @@ fun WriteReviewDialog(
                     contentScale = ContentScale.Crop
                 )
 
-
-                // Movie title
                 Text(
                     text = movie.title,
                     style = MaterialTheme.typography.titleMedium
@@ -68,11 +63,13 @@ fun WriteReviewDialog(
             }
         },
         text = {
-            Column {
-
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .imePadding()   // ⭐ This is the fix
+            ) {
                 Spacer(Modifier.height(8.dp))
 
-                // Optional: Short description preview
                 Text(
                     text = movie.description,
                     style = MaterialTheme.typography.bodySmall,
@@ -81,7 +78,6 @@ fun WriteReviewDialog(
 
                 Spacer(Modifier.height(16.dp))
 
-                // Rating
                 Text("Your rating")
                 Spacer(Modifier.height(4.dp))
 
@@ -92,7 +88,6 @@ fun WriteReviewDialog(
 
                 Spacer(Modifier.height(16.dp))
 
-                // Review text
                 OutlinedTextField(
                     value = text,
                     onValueChange = { text = it },

@@ -1,0 +1,7 @@
+TO run the app ensure that docker is running in the intellij file
+
+to Setup the app make sure that the maven file is being detected
+if it is not you will have to manually set it.
+
+after that sync and build the app and enter your username
+

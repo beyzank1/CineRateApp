@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.runtime.saveable.rememberSaveable
 
 
 import edu.augusta.scc.cinerateui.ui.theme.CineRateUITheme
@@ -33,7 +34,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CineRateUITheme {
-                var currentUser by remember { mutableStateOf<String?>(null) }
+                var currentUser by rememberSaveable { mutableStateOf<String?>(null) }
+
 
                 if (currentUser == null) {
                     // Show login screen first
