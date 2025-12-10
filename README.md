@@ -53,41 +53,78 @@ Located in a separate project directory.
 
 ---
 
-### **Steps**
+## Running the System (Backend)
 
-#### **1. Navigate to the project root**
+The entire backend (Java server and PostgreSQL database) runs inside Docker containers.
 
-```bash
-cd path/to/MovieRatingApp
-```
+### Important Note: Preventing Database Errors (Race Condition Fix)
 
-#### **2. Build & run the containers**
+We have implemented a Docker Health Check to ensure the database is ready before the Java server starts. You should use the following commands to ensure a clean startup.
 
-```bash
-docker-compose up --build
-```
+1.  **Stop and Delete Old Data (REQUIRED on first run or if database schema changes):**
+    If you have changed the database schema (e.g., added a column), you must run this command to remove the old, potentially corrupt, database volume.
+    ```bash
+    docker-compose down -v
+    ```
 
-#### **3. Wait for confirmation**
+2.  **Build and Start the System:**
+    This command builds the Java code, starts the PostgreSQL database, and waits for the database to be healthy before starting the backend server.
+    ```bash
+    docker-compose up --build
+    ```
 
-Look for:
+### Accessing the Server
 
-```
-✅ Server is ready! Waiting for connections...
-```
-
-Your backend is now live at:
-
-👉 **[http://localhost:5000](http://localhost:5000)**
-
+* **From your local browser (for testing):** `http://localhost:5000`
+* **From the Android Emulator (for the mobile app):** `http://10.0.2.2:5000`
 ---
 
-## 🔌 API Endpoints
+## API Documentation
 
-| Method | Endpoint  | Description            | Example                                                                              |
-| ------ | --------- | ---------------------- | ------------------------------------------------------------------------------------ |
-| GET    | `/`       | Health check           | [http://localhost:5000/](http://localhost:5000/)                                     |
-| GET    | `/search` | Search movies by title | [http://localhost:5000/search?q=Inception](http://localhost:5000/search?q=Inception) |
+The backend exposes a REST API on port `5000`.
+Base URL for Android Emulator: `http://10.0.2.2:5000`
+Base URL for Local Testing: `http://localhost:5000`
 
+### 1. Search Movies (Hybrid)
+Searches for movies by title.
+* **Method:** `GET`
+* **Endpoint:** `/search?q={title}`
+* **Description:**
+    * **Online:** Fetches from OMDb, caches the result (including full plot), and returns it.
+    * **Offline:** Searches the local PostgreSQL database for previously cached movies.
+* **Example:** `/search?q=Inception`
+
+### 2. Get Movie Details
+Fetches full details for a specific movie.
+* **Method:** `GET`
+* **Endpoint:** `/movie/{imdbId}`
+* **Description:** Retrieves the full movie object, including the plot description. Works offline if the movie is cached.
+* **Example:** `/movie/tt1375666`
+
+### 3. Submit a Review
+Saves a user review to the local database.
+* **Method:** `POST`
+* **Endpoint:** `/reviews`
+* **Body (JSON):**
+    ```json
+    {
+      "movieId": "tt1375666",
+      "authorId": 1,
+      "value": 5,
+      "review": "Amazing movie!"
+    }```
+
+### 4. Get Reviews
+Retrieves all reviews for a specific movie.
+* **Method:** `GET`
+* **Endpoint:** `/reviews/{movieId}`
+* **Description:** Returns a list of all user reviews stored locally for the given movie ID.
+* **Example:** `/reviews/tt1375666`
+
+### 5. Health Check
+* **Method:** `GET`
+* **Endpoint:** `/`
+* **Description:** Returns "Server is Online!" to verify connectivity.
 ---
 
 ## 📱 Android App Connection Guide
